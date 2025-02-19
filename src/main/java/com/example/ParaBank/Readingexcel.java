@@ -6,6 +6,7 @@ import java.io.IOException;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
@@ -20,7 +21,7 @@ public class Readingexcel {
 	}
 	
 
-	public static void main(String[] args) throws IOException {
+	public void excelaccess_data() throws IOException, InterruptedException {
 		// TODO Auto-generated method stub
 		
 		
@@ -46,9 +47,32 @@ public class Readingexcel {
 //			for(int c=0;c<cols;c++) {
 //			XSSFCell cell=	row.getCell(c);
 //			
-			String name = row.getCell(0).getStringCellValue();
-			String lastname = row.getCell(2).getStringCellValue();
-			System.out.println(lastname);
+		String name = row.getCell(0).getStringCellValue();
+		driver.findElement(By.id("customer.firstName")).sendKeys(name);
+		String lastname = row.getCell(1).getStringCellValue();
+		driver.findElement(By.id("customer.lastName")).sendKeys(lastname);
+		String address = row.getCell(2).getStringCellValue();
+		driver.findElement(By.id("customer.address.street")).sendKeys(address);
+		String city = row.getCell(3).getStringCellValue();
+		driver.findElement(By.id("customer.address.city")).sendKeys(city);
+		String state = row.getCell(4).getStringCellValue();
+		driver.findElement(By.id("customer.address.state")).sendKeys(state);
+		String Zipcode = row.getCell(5).getStringCellValue();
+		driver.findElement(By.id("customer.address.zipCode")).sendKeys(Zipcode);
+		String phone = row.getCell(6).getStringCellValue();
+		driver.findElement(By.id("customer.phoneNumber")).sendKeys(phone);
+		String ssn = row.getCell(7).getStringCellValue();
+		driver.findElement(By.id("customer.ssn")).sendKeys(ssn);
+		
+		String username = row.getCell(8).getStringCellValue();
+		driver.findElement(By.id("customer.username")).sendKeys(username);
+		String password = row.getCell(9).getStringCellValue();
+		driver.findElement(By.id("customer.password")).sendKeys(password);
+		String confirm = row.getCell(10).getStringCellValue();
+		driver.findElement(By.id("repeatedPassword")).sendKeys(confirm);
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//td//input[@type='submit']")).click();
+		
 			
 //			switch(cell.getCellType())
 //			{
