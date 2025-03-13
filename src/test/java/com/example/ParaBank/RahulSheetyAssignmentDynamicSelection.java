@@ -23,9 +23,9 @@ public class RahulSheetyAssignmentDynamicSelection {
 		
 		driver.findElement(By.id("checkBoxOption3")).click();
 		
-		String trip = driver.findElement(By.xpath("//*[@id='checkbox-example']/fieldset/label[2]/input")).getText();
-		
-		System.out.println(trip);
+//		String trip = driver.findElement(By.xpath("//*[@id='checkbox-example']/fieldset/label[2]/input")).getText();
+		String trip = driver.findElement(By.xpath("//input[@id='checkBoxOption3']")).getText();
+		System.out.println(trip+" Trip value");
 		
 		WebElement element = driver.findElement(By.id("checkBoxOption3"));
 		
